@@ -21,5 +21,5 @@ class GoodsListView(ListAPIView):
         if description:
             conditions |= Q(description__icontains=description)
         if conditions:
-            return queryset.filter(conditions)
+            return queryset.filter(conditions).distinct()
         return queryset
