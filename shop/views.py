@@ -19,7 +19,7 @@ class GoodsListView(ListAPIView):
         if tag:
             conditions |= Q(tags__name__icontains=tag)
         if description:
-            description |= Q(description__icontains=description)
+            conditions |= Q(description__icontains=description)
         if conditions:
             return queryset.filter(conditions)
         return queryset
